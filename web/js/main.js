@@ -397,7 +397,7 @@ function bindInput() {
 
     document.addEventListener('mousedown', (e) => {
         resumeAudio();
-        maybeFullscreen();
+        maybeFullscreen(e);
         sm.scene?.onMouseDown?.(e);
     });
     document.addEventListener('contextmenu', (e) => e.preventDefault());
@@ -489,8 +489,11 @@ function bindInput() {
 }
 
 let fullscreenTried = false;
-function maybeFullscreen() {
+// requestFullscreen() consumes the click's user activation, which would stop a file picker or a new tab opened by the
+// same click, so those controls (marked data-activation) are skipped and fullscreen waits for the next click
+function maybeFullscreen(e) {
     if (fullscreenTried) return;
+    if (e?.target?.closest?.('[data-activation]')) return;
     fullscreenTried = true;
     if (SettingsManager.settings.Fullscreen.value && !document.fullscreenElement) {
         document.documentElement.requestFullscreen?.().catch(() => {});

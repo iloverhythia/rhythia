@@ -370,14 +370,15 @@ export async function rhm(bytes, path) {
 
 // ---------------------------------------------------------------- entry points
 
-// file: File | { name, bytes }. audio: optional audio bytes for .txt maps
+// file: File | { name, data: Uint8Array }. audio: optional audio bytes for .txt maps
 export async function decodeFile(file, audio = null) {
     const name = file.name;
     const ext = extOf(name);
 
     if (!isValidExt(ext)) throw new MapParseError(`Unsupported file format (${ext})`);
 
-    const bytes = file.bytes ?? new Uint8Array(await file.arrayBuffer());
+    // File/Blob has a native bytes() method in current browsers, so raw data is passed as `data` instead
+    const bytes = file.data instanceof Uint8Array ? file.data : new Uint8Array(await file.arrayBuffer());
 
     switch (ext) {
         case 'phxm':

@@ -94,7 +94,7 @@ export class MainMenu {
         const settings = button('Settings', 'btn white', row, () => app.settingsMenu.showMenu(), sm.url('settingsButtonImage'));
         settings.title = 'CTRL + O';
         button('User Folder', 'btn white', row, () => app.exportUserData(), sm.url('openFolderButtonImage')).title = 'Download a backup of your browser user folder';
-        button('Import', 'btn white', row, () => this.importMaps(), sm.url('importButtonImage'));
+        button('Import', 'btn white', row, () => this.importMaps(), sm.url('importButtonImage')).dataset.activation = '';
         button('Random', 'btn white', row, () => this.mapList.pickRandom(), sm.url('randomButtonImage'));
         el('div', 'separator', row);
 
