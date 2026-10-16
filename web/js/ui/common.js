@@ -121,6 +121,7 @@ export class OptionPopup {
             callback?.();
         });
         if (tooltip) b.title = tooltip;
+        b.dataset.activation = '';
         return b;
     }
 

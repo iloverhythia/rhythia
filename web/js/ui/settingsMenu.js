@@ -165,6 +165,7 @@ export class SettingsMenu {
                     b.onPressed();
                 });
                 btn.title = b.description;
+                btn.dataset.activation = '';
             }
         }
 
