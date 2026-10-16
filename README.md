@@ -193,8 +193,20 @@ Maps aren't included in the game by default; they must be downloaded and importe
 ├── sounds/          # Audio assets
 ├── textures/        # Texture and image assets
 ├── themes/          # Godot UI themes
-└── user/            # Default user data scaffold
+├── user/            # Default user data scaffold
+└── web/             # HTML/JavaScript port of the client (see below)
 ```
+
+### Web Build
+
+`web/` is a browser port of the client built on three.js, with no build step. It reads fonts, skins, meshes and colorsets straight from this repository, so serve the **repository root** and open `/web/`:
+
+```bash
+python3 -m http.server 8000
+# then open http://localhost:8000/web/
+```
+
+Maps, replays, scores, stats and imported meshes/colorsets are stored in the browser (IndexedDB). Settings profiles are kept in `localStorage`. Import maps with the Import button or by dropping `.sspm`, `.phxm`, `.rhm` or `.txt` files (plus audio for `.txt`) onto the page. **User Folder** downloads a backup of this data, which **Settings → Other → Import User Folder** restores. The page needs WebGL 2. Gameplay captures the mouse with the Pointer Lock API.
 
 ---
 
