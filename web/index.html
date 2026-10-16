@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Rhythia</title>
+        <link rel="icon" href="../textures/icon.svg" />
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="vendor/jszip.min.js"></script>
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "./vendor/three.module.min.js"
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="view"></canvas>
+        <div id="scenes"></div>
+        <div id="overlay"></div>
+        <noscript>Rhythia needs JavaScript and WebGL 2 to run.</noscript>
+        <script type="module" src="js/main.js"></script>
+    </body>
+</html>
