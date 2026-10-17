@@ -5,19 +5,16 @@ import { Lobby } from './lobby.js';
 import { MapManager } from './map/manager.js';
 import { isValidExt } from './map/parser.js';
 import { RenderBackend, TIME } from './render.js';
-import { SettingsManager, SettingsProfile } from './settings.js';
+
 import { SkinManager } from './skin.js';
 import { createSpace } from './spaces/index.js';
 import { Stats } from './stats.js';
 import { Storage } from './storage.js';
-import { SoundManager, resumeAudio } from './audio.js';
+
 import { LoadingScene } from './ui/loading.js';
 import { MainMenu } from './ui/mainMenu.js';
 import { ResultsScene } from './ui/results.js';
 import { SettingsMenu } from './ui/settingsMenu.js';
-import { Overlays } from './ui/overlays.js';
-import { notify } from './ui/notify.js';
-import { updateTweens } from './ui/tween.js';
 
 const app = {
     settingsManager: SettingsManager,
@@ -28,7 +25,6 @@ const app = {
     lobby: Lobby,
     notify,
 };
-
 
 
 class SceneManagerClass {
@@ -121,7 +117,6 @@ class SceneManagerClass {
         scene.space = this.space;
     }
 }
-
 
 
 const audioCache = new Map();
